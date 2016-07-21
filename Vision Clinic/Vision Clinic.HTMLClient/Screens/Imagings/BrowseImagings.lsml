@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.Vision_Clinic.HTMLClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <Screen
+    Name="BrowseImagings">
+    <Screen.Attributes>
+      <SaveChangesTo
+        EntityContainer="ApplicationData" />
+      <DisplayName
+        Value="Imagings" />
+    </Screen.Attributes>
+    <Screen.RootContentItem>
+      <ContentItem
+        Name="RootContentItem"
+        Kind="Screen"
+        View="Microsoft.LightSwitch.MobileWeb:Screen">
+        <ContentItem
+          Name="Tabs"
+          Kind="Group"
+          View="Microsoft.LightSwitch.MobileWeb:TabPages">
+          <ContentItem
+            Name="ImagingList"
+            Kind="Group">
+            <ContentItem
+              Name="Imagings"
+              Kind="Collection"
+              DataType="CollectionView$Imaging"
+              View="Microsoft.LightSwitch.MobileWeb:TileList">
+              <ContentItem.Attributes>
+                <DisplayName
+                  Value="Imagings" />
+              </ContentItem.Attributes>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="BrowseImagings/Properties[Imagings]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="columns"
+                Kind="Details"
+                DataType="Imaging"
+                View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="columns" />
+                </ContentItem.Attributes>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression />
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem
+                  Name="Image"
+                  Kind="Value"
+                  DataType="Microsoft.LightSwitch.Extensions:Image?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Imaging/Properties[Image]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="rows"
+                  Kind="Group"
+                  View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
+                  <ContentItem.Attributes>
+                    <DisplayName
+                      Value="rows" />
+                  </ContentItem.Attributes>
+                  <ContentItem
+                    Name="MedicalHistory"
+                    Kind="Details"
+                    DataType="MedicalHistory"
+                    View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="Imaging/Properties[MedicalHistory]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem
+                      Name="Patient"
+                      Kind="Details"
+                      DataType="Patient"
+                      View="Microsoft.LightSwitch.MobileWeb:DetailsModalPicker">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="MedicalHistory/Properties[Patient]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                      <ContentItem
+                        Name="PatientTemplate"
+                        Kind="Details"
+                        DataType="Patient"
+                        View="Microsoft.LightSwitch.MobileWeb:Summary">
+                        <ContentItem.DataSource>
+                          <ScreenExpressionTree>
+                            <ChainExpression />
+                          </ScreenExpressionTree>
+                        </ContentItem.DataSource>
+                        <ContentItem
+                          Name="PatientPhoto"
+                          Kind="Value"
+                          DataType="Microsoft.LightSwitch.Extensions:Image?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Patient/Properties[PatientPhoto]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="Name"
+                          Kind="Value"
+                          DataType=":Person">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Patient/Properties[Name]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="Street"
+                          Kind="Value"
+                          DataType=":String?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Patient/Properties[Street]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="Street2"
+                          Kind="Value"
+                          DataType=":String?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Patient/Properties[Street2]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="City"
+                          Kind="Value"
+                          DataType=":String?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Patient/Properties[City]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="State"
+                          Kind="Value"
+                          DataType=":String?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Patient/Properties[State]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="Zip"
+                          Kind="Value"
+                          DataType=":String?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Patient/Properties[Zip]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="PrimaryPhone"
+                          Kind="Value"
+                          DataType="Microsoft.LightSwitch.Extensions:PhoneNumber?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Patient/Properties[PrimaryPhone]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="SecondaryPhone"
+                          Kind="Value"
+                          DataType="Microsoft.LightSwitch.Extensions:PhoneNumber?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Patient/Properties[SecondaryPhone]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="Email"
+                          Kind="Value"
+                          DataType="Microsoft.LightSwitch.Extensions:EmailAddress?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Patient/Properties[Email]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="PolicyNumber"
+                          Kind="Value"
+                          DataType=":String?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Patient/Properties[PolicyNumber]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                      </ContentItem>
+                    </ContentItem>
+                    <ContentItem
+                      Name="Created"
+                      Kind="Value"
+                      DataType=":DateTimeOffset?">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="MedicalHistory/Properties[Created]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[FontStyle]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="Small"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem
+                    Name="Id"
+                    Kind="Value"
+                    DataType=":Int32">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="Imaging/Properties[Id]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[FontStyle]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="Large"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[WidthSizingMode]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="FitToContent"
+                            ResultType=":String" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
+                </ContentItem>
+              </ContentItem>
+              <ContentItem.PropertySources>
+                <ControlPropertySource
+                  Property="Microsoft.LightSwitch.MobileWeb:RootCollectionControl/Properties[ItemTap]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <CallExpression
+                        Target="!module/Methods[showViewImaging]">
+                        <CallExpression.Attributes>
+                          <AssociatedCollection
+                            Collection="BrowseImagings/Properties[Imagings]" />
+                        </CallExpression.Attributes>
+                        <ArgumentExpression
+                          Parameter="Imaging">
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="BrowseImagings/Properties[Imagings]" />
+                            <MemberExpression
+                              Member="selectedItem" />
+                          </ChainExpression>
+                        </ArgumentExpression>
+                      </CallExpression>
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+            </ContentItem>
+            <ContentItem.CommandItems>
+              <ContentItem
+                Name="AddImaging"
+                Kind="Command">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Add" />
+                </ContentItem.Attributes>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <CallExpression
+                          Target="!module/Methods[showAddEditImaging]">
+                          <CallExpression.Attributes>
+                            <AssociatedCollection
+                              Collection="BrowseImagings/Properties[Imagings]" />
+                            <CreateNewEntity
+                              TargetParameter="!module/Methods[showAddEditImaging]/Parameters[Imaging]" />
+                          </CallExpression.Attributes>
+                        </CallExpression>
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootCommand/Properties[Icon]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="msls-add"
+                          ResultType="Microsoft.LightSwitch:String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem
+                Name="SearchImagings"
+                Kind="Command">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Search" />
+                </ContentItem.Attributes>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="BrowseImagings/Properties[Imagings]" />
+                        <CallExpression
+                          Target="showSearch" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootCommand/Properties[Icon]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="msls-search"
+                          ResultType="Microsoft.LightSwitch:String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+            </ContentItem.CommandItems>
+          </ContentItem>
+          <ContentItem.PropertySources>
+            <ControlPropertySource
+              Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[BrowseOnly]">
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <ConstantExpression
+                    Value="True"
+                    ResultType=":Boolean" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+          </ContentItem.PropertySources>
+        </ContentItem>
+        <ContentItem
+          Name="Popups"
+          Kind="Group"
+          View="Microsoft.LightSwitch.MobileWeb:DialogPages" />
+      </ContentItem>
+    </Screen.RootContentItem>
+    <Screen.Methods>
+      <ScreenMethod
+        Name="showTab">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+        <ScreenMethodParameter
+          Name="tabName"
+          ParameterType=":String" />
+      </ScreenMethod>
+      <ScreenMethod
+        Name="showDialog">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+        <ScreenMethodParameter
+          Name="dialogName"
+          ParameterType=":String" />
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenCollectionProperty
+        Name="Imagings"
+        PageSize="45"
+        PropertyType="CollectionView$Imaging">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="ImagingsQuery"
+            ReturnType="Imaging*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ApplicationData/Members[Imagings]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="BrowseImagings/Properties[Imagings]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+    </Screen.Properties>
+  </Screen>
+  <Application.Methods>
+    <ApplicationMethod
+      Name="showBrowseImagings">
+      <ApplicationMethod.Attributes>
+        <ShowScreenMethod
+          TargetScreen="BrowseImagings" />
+      </ApplicationMethod.Attributes>
+    </ApplicationMethod>
+  </Application.Methods>
+</Application>
