@@ -56,6 +56,17 @@
     <WarningLevel>4</WarningLevel>
     <UseDesignTimeFeatures>false</UseDesignTimeFeatures>
     <NoWarn>1522</NoWarn>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="e7ea2955-c2e1-4b4f-9d0d-3dac19c65710-Deployment" Order="2">
+          <Destination Path="Data Source=nqhx83xajz.database.windows.net%3bInitial Catalog=moshcodAblx5LTPv%3bUser ID=jesus%3bPassword=amen7373%24%24" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=.\sqlexpress%3bAttachDbFilename=C:\Temp\PrescriptionContoso.mdf%3bIntegrated Security=True" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\e7ea2955-c2e1-4b4f-9d0d-3dac19c65710-Deployment_SchemaAndData.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.LightSwitch.Olap.Common">
@@ -242,6 +253,8 @@
     </LightSwitchModel>
   </ItemGroup>
   <ItemGroup>
+    <_ServerFile Include="LogIn.aspx" />
+    <_ServerFile Include="LogOut.aspx" />
     <Content Include="Web.config" />
     <LightSwitchModel Include="Properties\DataSources\ApplicationData.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\Patients.lsml" />
@@ -293,7 +306,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:4407/</IISUrl>
+          <IISUrl>http://localhost:8493/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

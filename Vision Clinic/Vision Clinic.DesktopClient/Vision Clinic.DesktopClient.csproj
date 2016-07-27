@@ -44,6 +44,9 @@
     <LightSwitchProjectTypeV45>Client</LightSwitchProjectTypeV45>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <ApplicationName>Dental_Clinic.DesktopClient</ApplicationName>
+    <SignManifests>False</SignManifests>
+    <ManifestCertificateThumbprint />
+    <ManifestKeyFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
