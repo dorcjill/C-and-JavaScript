@@ -48,19 +48,6 @@
                 Name="left"
                 Kind="Group">
                 <ContentItem
-                  Name="Name"
-                  Kind="Value"
-                  DataType=":Person">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Patient/Properties[Name]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
                   Name="Street"
                   Kind="Value"
                   DataType=":String?">
@@ -68,7 +55,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Patient/Properties[Street]" />
+                          Member="Patient/Properties[FirstName]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -81,7 +68,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Patient/Properties[PolicyNumber]" />
+                          Member="Patient/Properties[PaymentMethod]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -132,12 +119,12 @@
                 <ContentItem
                   Name="SecondaryPhone"
                   Kind="Value"
-                  DataType="Microsoft.LightSwitch.Extensions:PhoneNumber?">
+                  DataType=":String?">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Patient/Properties[SecondaryPhone]" />
+                          Member="Patient/Properties[Gender]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -151,19 +138,6 @@
                       <ChainExpression>
                         <MemberExpression
                           Member="Patient/Properties[PrimaryPhone]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="Email"
-                  Kind="Value"
-                  DataType="Microsoft.LightSwitch.Extensions:EmailAddress?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Patient/Properties[Email]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>

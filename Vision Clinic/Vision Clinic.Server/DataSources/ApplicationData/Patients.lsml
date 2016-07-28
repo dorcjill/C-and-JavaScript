@@ -24,6 +24,20 @@
         </KeyProperty.Attributes>
       </KeyProperty>
       <EntityProperty
+        Name="PatientID"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Name"
+        PropertyType=":Person">
+        <EntityProperty.Attributes>
+          <Computed />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="PatientPhoto"
         PropertyType="Microsoft.LightSwitch.Extensions:Image?">
         <EntityProperty.Attributes>
@@ -31,17 +45,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="Name"
-        PropertyType=":Person">
-        <EntityProperty.Attributes>
-          <Required />
-          <MaxLength
-            Value="255" />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Street"
+        Name="FirstName"
         PropertyType=":String?">
         <EntityProperty.Attributes>
           <MaxLength
@@ -49,7 +53,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="Street2"
+        Name="MiddleName"
         PropertyType=":String?">
         <EntityProperty.Attributes>
           <MaxLength
@@ -57,7 +61,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="City"
+        Name="LastName"
         PropertyType=":String?">
         <EntityProperty.Attributes>
           <MaxLength
@@ -65,7 +69,19 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="State"
+        Name="Gender"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+          <SupportedValue
+            Value="Male" />
+          <SupportedValue
+            Value="Female" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Address"
         PropertyType=":String?">
         <EntityProperty.Attributes>
           <MaxLength
@@ -73,7 +89,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="Zip"
+        Name="NextOfKin"
         PropertyType=":String?">
         <EntityProperty.Attributes>
           <MaxLength
@@ -89,27 +105,17 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="SecondaryPhone"
-        PropertyType="Microsoft.LightSwitch.Extensions:PhoneNumber?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Email"
-        PropertyType="Microsoft.LightSwitch.Extensions:EmailAddress?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="PolicyNumber"
+        Name="PaymentMethod"
         PropertyType=":String?">
         <EntityProperty.Attributes>
           <MaxLength
             Value="12" />
+          <SupportedValue
+            DisplayName="Insurance"
+            Value="1" />
+          <SupportedValue
+            DisplayName="Cash"
+            Value="2" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <NavigationProperty
@@ -123,10 +129,15 @@
         FromEnd="Patient"
         ToEnd="Appointment" />
       <NavigationProperty
-        Name="MedicalHistories"
-        Association="MedicalHistory_Patient"
+        Name="AllergiesCollection"
+        Association="Patient_Allergies"
         FromEnd="Patient"
-        ToEnd="MedicalHistory" />
+        ToEnd="Allergies" />
+      <NavigationProperty
+        Name="MedicalEncounters"
+        Association="Patient_MedicalEncounter"
+        FromEnd="Patient"
+        ToEnd="MedicalEncounter" />
       <EntityProperty
         Name="RowVersion"
         PropertyType=":RowVersion">
@@ -251,14 +262,24 @@
         EntitySet="Patients" />
     </AssociationSet>
     <AssociationSet
-      Name="MedicalHistory_Patients"
-      Association="MedicalHistory_Patient">
-      <AssociationSetEnd
-        Name="MedicalHistory"
-        EntitySet="MedicalHistories" />
+      Name="Patient_AllergiesSet"
+      Association="Patient_Allergies">
       <AssociationSetEnd
         Name="Patient"
         EntitySet="Patients" />
+      <AssociationSetEnd
+        Name="Allergies"
+        EntitySet="AllergiesSet" />
+    </AssociationSet>
+    <AssociationSet
+      Name="Patient_MedicalEncounters"
+      Association="Patient_MedicalEncounter">
+      <AssociationSetEnd
+        Name="Patient"
+        EntitySet="Patients" />
+      <AssociationSetEnd
+        Name="MedicalEncounter"
+        EntitySet="MedicalEncounters" />
     </AssociationSet>
   </EntityContainer>
   <Association
@@ -325,22 +346,43 @@
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
     <AssociationSetMapping
-      AssociationSet="MedicalHistory_Patients">
+      AssociationSet="Patient_AllergiesSet">
       <AssociationSetMapping.Attributes>
         <SsdlAssociationSet
-          Name="MedicalHistory_Patients" />
+          Name="Patient_AllergiesSet" />
         <SsdlAssociationSetEnd
-          End="ApplicationData/Members[MedicalHistory_Patients]/Members[MedicalHistory]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="MedicalHistory_Patient" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[MedicalHistory_Patients]/Members[Patient]">
+          End="ApplicationData/Members[Patient_AllergiesSet]/Members[Patient]">
           <SsdlAssociationSetEnd.Attributes>
             <SsdlPropertyRef
               Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Patient_AllergiesSet]/Members[Allergies]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Patient_Allergies" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Patient_MedicalEncounters">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Patient_MedicalEncounters" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Patient_MedicalEncounters]/Members[Patient]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Patient_MedicalEncounters]/Members[MedicalEncounter]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Patient_MedicalEncounter" />
           </SsdlAssociationSetEnd.Attributes>
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
@@ -363,19 +405,33 @@
     </AssociationEnd>
   </Association>
   <Association
-    Name="MedicalHistory_Patient">
-    <AssociationEnd
-      Name="MedicalHistory"
-      Multiplicity="Many"
-      EntityType="MedicalHistory" />
+    Name="Patient_Allergies">
     <AssociationEnd
       Name="Patient"
-      Multiplicity="One"
       EntityType="Patient">
       <AssociationEnd.Attributes>
         <DeleteRule
-          Action="Cascade" />
+          Action="Disassociate" />
       </AssociationEnd.Attributes>
     </AssociationEnd>
+    <AssociationEnd
+      Name="Allergies"
+      Multiplicity="Many"
+      EntityType="Allergies" />
+  </Association>
+  <Association
+    Name="Patient_MedicalEncounter">
+    <AssociationEnd
+      Name="Patient"
+      EntityType="Patient">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Disassociate" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="MedicalEncounter"
+      Multiplicity="Many"
+      EntityType="MedicalEncounter" />
   </Association>
 </ServiceApplication>

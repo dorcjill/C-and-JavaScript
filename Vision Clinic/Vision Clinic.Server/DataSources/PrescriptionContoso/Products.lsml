@@ -57,6 +57,7 @@
         PropertyType="Microsoft.LightSwitch.Extensions:Image?">
         <EntityProperty.Attributes>
           <NotSearchable />
+          <MaxLength />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty

@@ -88,29 +88,6 @@
               <ContentItem
                 Name="right"
                 Kind="Group">
-                <ContentItem
-                  Name="MedicalHistory"
-                  Kind="Details"
-                  DataType="MedicalHistory">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Imaging/Properties[MedicalHistory]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                  <ContentItem
-                    Name="RowTemplate"
-                    Kind="Details"
-                    DataType="MedicalHistory">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression />
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                </ContentItem>
                 <ContentItem.PropertySources>
                   <ControlPropertySource
                     Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[MinWidth]">

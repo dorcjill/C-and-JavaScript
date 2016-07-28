@@ -61,49 +61,37 @@
   <EntityType>
     <EntityType.Attributes>
       <Proxy
-        Target="ServiceInterface:MedicalHistory" />
+        Target="ServiceInterface:Allergies" />
     </EntityType.Attributes>
   </EntityType>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:MedicalEncounter_Carries" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:MedicalEncounter_Imaging" />
+    </Association.Attributes>
+  </Association>
   <EntityType>
     <EntityType.Attributes>
       <Proxy
         Target="ServiceInterface:MedicalEncounter" />
     </EntityType.Attributes>
   </EntityType>
-  <EntityType>
-    <EntityType.Attributes>
-      <Proxy
-        Target="ServiceInterface:Allergies" />
-    </EntityType.Attributes>
-  </EntityType>
-  <EntityType>
-    <EntityType.Attributes>
-      <Proxy
-        Target="ServiceInterface:Imaging" />
-    </EntityType.Attributes>
-  </EntityType>
   <Association>
     <Association.Attributes>
       <Proxy
-        Target="ServiceInterface:MedicalHistory_Allergies" />
+        Target="ServiceInterface:Patient_Allergies" />
     </Association.Attributes>
   </Association>
   <Association>
     <Association.Attributes>
       <Proxy
-        Target="ServiceInterface:MedicalHistory_Imaging" />
-    </Association.Attributes>
-  </Association>
-  <Association>
-    <Association.Attributes>
-      <Proxy
-        Target="ServiceInterface:MedicalHistory_MedicalEncounter" />
-    </Association.Attributes>
-  </Association>
-  <Association>
-    <Association.Attributes>
-      <Proxy
-        Target="ServiceInterface:MedicalHistory_Patient" />
+        Target="ServiceInterface:Patient_MedicalEncounter" />
     </Association.Attributes>
   </Association>
 </Application>

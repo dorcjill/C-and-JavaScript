@@ -94,6 +94,19 @@
               </ContentItem.PropertySources>
             </ContentItem>
             <ContentItem
+              Name="Subject"
+              Kind="Value"
+              DataType=":String">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="Appointment/Properties[Subject]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem
               Name="DoctorNotes"
               Kind="Value"
               DataType=":String?">
@@ -228,7 +241,7 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Patient/Properties[PolicyNumber]" />
+                        Member="Patient/Properties[PaymentMethod]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -253,6 +266,42 @@
               </ContentItem.PropertySources>
             </ContentItem>
             <ContentItem
+              Name="Patient1"
+              Kind="Details"
+              DataType="Patient">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="Appointment/Properties[Patient]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="Patient2"
+                Kind="Details"
+                DataType="Patient">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression />
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem>
+            <ContentItem
+              Name="PatientType"
+              Kind="Value"
+              DataType=":String?">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="Appointment/Properties[PatientType]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem
               Name="CreatedBy"
               Kind="Value"
               DataType=":Person?">
@@ -274,32 +323,6 @@
                   <ChainExpression>
                     <MemberExpression
                       Member="Appointment/Properties[Created]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-            </ContentItem>
-            <ContentItem
-              Name="ModifiedBy"
-              Kind="Value"
-              DataType=":Person?">
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression
-                      Member="Appointment/Properties[ModifiedBy]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-            </ContentItem>
-            <ContentItem
-              Name="Modified"
-              Kind="Value"
-              DataType=":DateTimeOffset?">
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression
-                      Member="Appointment/Properties[Modified]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>

@@ -7,12 +7,6 @@
   <EntityType>
     <EntityType.Attributes>
       <Proxy
-        Target="ServiceInterface:InvoiceDetail" />
-    </EntityType.Attributes>
-  </EntityType>
-  <EntityType>
-    <EntityType.Attributes>
-      <Proxy
         Target="ServiceInterface:Product" />
     </EntityType.Attributes>
   </EntityType>
@@ -73,12 +67,6 @@
   <EntityType>
     <EntityType.Attributes>
       <Proxy
-        Target="ServiceInterface:MedicalHistory" />
-    </EntityType.Attributes>
-  </EntityType>
-  <EntityType>
-    <EntityType.Attributes>
-      <Proxy
         Target="ServiceInterface:MedicalEncounter" />
     </EntityType.Attributes>
   </EntityType>
@@ -88,28 +76,34 @@
         Target="ServiceInterface:Allergies" />
     </EntityType.Attributes>
   </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Carries" />
+    </EntityType.Attributes>
+  </EntityType>
   <Association>
     <Association.Attributes>
       <Proxy
-        Target="ServiceInterface:MedicalHistory_Allergies" />
+        Target="ServiceInterface:MedicalEncounter_Carries" />
     </Association.Attributes>
   </Association>
   <Association>
     <Association.Attributes>
       <Proxy
-        Target="ServiceInterface:MedicalHistory_Imaging" />
+        Target="ServiceInterface:MedicalEncounter_Imaging" />
     </Association.Attributes>
   </Association>
   <Association>
     <Association.Attributes>
       <Proxy
-        Target="ServiceInterface:MedicalHistory_MedicalEncounter" />
+        Target="ServiceInterface:Patient_Allergies" />
     </Association.Attributes>
   </Association>
   <Association>
     <Association.Attributes>
       <Proxy
-        Target="ServiceInterface:MedicalHistory_Patient" />
+        Target="ServiceInterface:Patient_MedicalEncounter" />
     </Association.Attributes>
   </Association>
 </Application>

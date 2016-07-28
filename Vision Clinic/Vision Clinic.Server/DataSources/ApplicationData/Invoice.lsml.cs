@@ -11,18 +11,18 @@ namespace LightSwitchApplication
         {
             InvoiceDate = System.DateTime.Today;
             InvoiceDue = System.DateTime.Today.AddDays(30);
-            ShipDate = System.DateTime.Today.AddDays(3);
+            //ShipDate = System.DateTime.Today.AddDays(3);
         }
 
-        partial void InvoiceDate_Changed()
-        {
-            InvoiceDue = InvoiceDate.AddDays(30);
+        //partial void InvoiceDate_Changed()
+        //{
+          //  InvoiceDue = InvoiceDate.AddDays(30);
             // If the ShipDate is earlier than the new InvoiceDate, update it
-            if (ShipDate < InvoiceDate)
-            {
-                ShipDate = InvoiceDate.AddDays(2);
-            }
-        }
+           // if (ShipDate < InvoiceDate)
+          //  {
+          //      ShipDate = InvoiceDate.AddDays(2);
+          //  }
+       // }
 
         partial void Tax_Compute(ref decimal result)
         {

@@ -45,19 +45,6 @@
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
                 <ContentItem
-                  Name="Name"
-                  Kind="Value"
-                  DataType=":Person">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Patient/Properties[Name]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
                   Name="PolicyNumber"
                   Kind="Value"
                   DataType=":String?">
@@ -65,7 +52,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Patient/Properties[PolicyNumber]" />
+                          Member="Patient/Properties[PaymentMethod]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>

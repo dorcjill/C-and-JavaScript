@@ -5,7 +5,7 @@
     <Partial />
   </Application.Attributes>
   <Screen
-    Name="AnalyzeInvoiceDetails">
+    Name="PatientsMedicalHx">
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
@@ -19,190 +19,171 @@
           Name="ScreenLayout"
           Kind="Group">
           <ContentItem
-            Name="C1OlapPage"
+            Name="grid"
             Kind="Collection"
-            DataType="CollectionView$InvoiceDetail"
-            View="C1.LightSwitch.Olap:C1OlapPage">
+            DataType="CollectionView$Patient">
             <ContentItem.DataSource>
               <ScreenExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="AnalyzeInvoiceDetails/Properties[InvoiceDetails]" />
+                    Member="PatientsMedicalHx/Properties[Patients]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
             <ContentItem
               Name="RowTemplate"
               Kind="Details"
-              DataType="InvoiceDetail">
+              DataType="Patient">
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression />
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
               <ContentItem
-                Name="Quantity"
+                Name="PatientID"
                 Kind="Value"
-                DataType=":Int32">
+                DataType=":String">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="InvoiceDetail/Properties[Quantity]" />
+                        Member="Patient/Properties[PatientID]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem
-                Name="UnitPrice"
+                Name="Name"
                 Kind="Value"
-                DataType=":Decimal">
+                DataType=":Person">
+                <ContentItem.Attributes>
+                  <ShowAsLinkSettings
+                    Value="MedicalHx">
+                    <ShowAsLinkSettings.Attributes>
+                      <ScreenParameterMapping
+                        KeyProperty="Patient/Properties[Id]"
+                        ScreenParameter="MedicalHx/Properties[PatientId]" />
+                    </ShowAsLinkSettings.Attributes>
+                  </ShowAsLinkSettings>
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="InvoiceDetail/Properties[UnitPrice]" />
+                        Member="Patient/Properties[Name]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="Invoice"
-                Kind="Details"
-                DataType="Invoice">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="InvoiceDetail/Properties[Invoice]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-                <ContentItem
-                  Name="RowTemplate1"
-                  Kind="Details"
-                  DataType="Invoice">
-                  <ContentItem.DataSource>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[ShowAsLink]">
                     <ScreenExpressionTree>
-                      <ChainExpression />
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="True"
+                          ResultType=":Boolean" />
+                      </ChainExpression>
                     </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
               </ContentItem>
               <ContentItem
-                Name="Product"
-                Kind="Details"
-                DataType="Product">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="InvoiceDetail/Properties[Product]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-                <ContentItem
-                  Name="RowTemplate2"
-                  Kind="Details"
-                  DataType="Product">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression />
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-              </ContentItem>
-              <ContentItem
-                Name="Product_ProductID"
+                Name="Gender"
                 Kind="Value"
-                DataType=":Int32">
+                DataType=":String?">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="InvoiceDetail/Properties[Product_ProductID]" />
+                        Member="Patient/Properties[Gender]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem
-                Name="CreatedBy"
+                Name="Address"
                 Kind="Value"
-                DataType=":Person?">
+                DataType=":String?">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="InvoiceDetail/Properties[CreatedBy]" />
+                        Member="Patient/Properties[Address]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem
-                Name="Created"
+                Name="NextOfKin"
                 Kind="Value"
-                DataType=":DateTimeOffset?">
+                DataType=":String?">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="InvoiceDetail/Properties[Created]" />
+                        Member="Patient/Properties[NextOfKin]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem
-                Name="ModifiedBy"
+                Name="PrimaryPhone"
                 Kind="Value"
-                DataType=":Person?">
+                DataType="Microsoft.LightSwitch.Extensions:PhoneNumber?">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="InvoiceDetail/Properties[ModifiedBy]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="Modified"
-                Kind="Value"
-                DataType=":DateTimeOffset?">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="InvoiceDetail/Properties[Modified]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="SubTotal"
-                Kind="Value"
-                DataType=":Decimal">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="InvoiceDetail/Properties[SubTotal]" />
+                        Member="Patient/Properties[PrimaryPhone]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem.PropertySources>
                 <ControlPropertySource
-                  Property="C1.LightSwitch.Olap:C1RowPlaceholder/Properties[ViewFieldsProperty]">
+                  Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[BrowseOnly]">
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <ConstantExpression
-                        Value="Created;CreatedBy;ModifiedBy;Modified"
-                        ResultType=":String" />
+                        Value="True"
+                        ResultType=":Boolean" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ControlPropertySource>
               </ContentItem.PropertySources>
             </ContentItem>
+            <ContentItem.PropertySources>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:DataGrid/Properties[ShowVirtualRow]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="False"
+                      ResultType=":Boolean" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[AttachedLabelPosition]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Collapsed"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Stretch"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
           </ContentItem>
         </ContentItem>
         <ContentItem.CommandItems>
@@ -213,7 +194,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="AnalyzeInvoiceDetails/Methods[Save]" />
+                    Target="PatientsMedicalHx/Methods[Save]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -225,7 +206,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="AnalyzeInvoiceDetails/Methods[Refresh]" />
+                    Target="PatientsMedicalHx/Methods[Refresh]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -265,23 +246,20 @@
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
-        Name="InvoiceDetails"
-        DisablePaging="True"
-        DisableSearch="True"
-        DisableSorting="True"
+        Name="Patients"
         PageSize="45"
-        PropertyType="CollectionView$InvoiceDetail">
+        PropertyType="CollectionView$Patient">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition
-            Name="InvoiceDetailsQuery"
-            ReturnType="InvoiceDetail*">
+            Name="PatientsQuery"
+            ReturnType="Patient*">
             <ScreenQueryDefinition.FilterExpression>
               <QueryFilterExpressionTree />
             </ScreenQueryDefinition.FilterExpression>
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
                 <MemberExpression
-                  Member="ApplicationData/Members[InvoiceDetails]" />
+                  Member="ApplicationData/Members[Patients]" />
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
           </ScreenQueryDefinition>
@@ -289,7 +267,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="AnalyzeInvoiceDetails/Properties[InvoiceDetails]/Query" />
+              Target="PatientsMedicalHx/Properties[Patients]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -297,10 +275,10 @@
   </Screen>
   <Application.Methods>
     <ApplicationMethod
-      Name="ShowAnalyzeInvoiceDetails">
+      Name="ShowPatientsMedicalHx">
       <ApplicationMethod.Attributes>
         <ShowScreenMethod
-          TargetScreen="AnalyzeInvoiceDetails" />
+          TargetScreen="PatientsMedicalHx" />
       </ApplicationMethod.Attributes>
     </ApplicationMethod>
   </Application.Methods>

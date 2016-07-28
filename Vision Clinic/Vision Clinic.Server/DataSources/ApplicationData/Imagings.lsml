@@ -34,10 +34,10 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <NavigationProperty
-        Name="MedicalHistory"
-        Association="MedicalHistory_Imaging"
+        Name="MedicalEncounter"
+        Association="MedicalEncounter_Imaging"
         FromEnd="Imaging"
-        ToEnd="MedicalHistory" />
+        ToEnd="MedicalEncounter" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -192,6 +192,14 @@
       <EntitySetMapping.Attributes>
         <SsdlForeignKeyProperty
           Name="MedicalHistory_Imaging"
+          Nullable="True"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="MedicalEncounter_Imaging"
+          Nullable="True"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="Patient_Imaging"
           Nullable="True"
           Type="int" />
       </EntitySetMapping.Attributes>

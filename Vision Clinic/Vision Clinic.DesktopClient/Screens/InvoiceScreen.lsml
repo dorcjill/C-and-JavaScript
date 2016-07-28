@@ -93,94 +93,6 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                 </ContentItem>
-                <ContentItem
-                  Name="InvoiceStatus"
-                  Kind="Value"
-                  DataType=":Int32">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Invoice/Properties[InvoiceStatus]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource
-                      Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[HorizontalAlignment]">
-                      <ScreenExpressionTree>
-                        <ConstantExpression
-                          Value="Left"
-                          ResultType=":String" />
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                    <ControlPropertySource
-                      Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[Width]">
-                      <ScreenExpressionTree>
-                        <ConstantExpression
-                          Value="250"
-                          ResultType=":Double" />
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                </ContentItem>
-                <ContentItem
-                  Name="PaymentMethod"
-                  Kind="Value"
-                  DataType=":String?"
-                  View="Microsoft.LightSwitch.RichClient:ValueAutoCompleteBox">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Invoice/Properties[PaymentMethod]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="ShipDate"
-                  Kind="Value"
-                  DataType=":DateTime">
-                  <ContentItem.Attributes>
-                    <DisplayName
-                      Value="Delivery Date" />
-                  </ContentItem.Attributes>
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Invoice/Properties[ShipDate]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="Created"
-                  Kind="Value"
-                  DataType=":DateTimeOffset?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Invoice/Properties[Created]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="InvoiceNumber"
-                  Kind="Value"
-                  DataType=":String">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Invoice/Properties[InvoiceNumber]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
               </ContentItem>
               <ContentItem.CommandItems>
                 <ContentItem
@@ -308,75 +220,6 @@
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
               <ContentItem
-                Name="InvoiceDate1"
-                Kind="Value"
-                DataType=":DateTime"
-                View="Microsoft.LightSwitch.RichClient:Label">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Invoice/Properties[InvoiceDate]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="InvoiceDue1"
-                Kind="Value"
-                DataType=":DateTime"
-                View="Microsoft.LightSwitch.RichClient:Label">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Invoice/Properties[InvoiceDue]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="InvoiceStatus1"
-                Kind="Value"
-                DataType=":Int32">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Invoice/Properties[InvoiceStatus]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-                <ContentItem.PropertySources>
-                  <ControlPropertySource
-                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[HorizontalAlignment]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression
-                        Value="Left"
-                        ResultType=":String" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
-              </ContentItem>
-              <ContentItem
-                Name="ShipDate1"
-                Kind="Value"
-                DataType=":DateTime"
-                View="Microsoft.LightSwitch.RichClient:Label">
-                <ContentItem.Attributes>
-                  <DisplayName
-                    Value="Delivery Date" />
-                </ContentItem.Attributes>
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Invoice/Properties[ShipDate]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
                 Name="Tax"
                 Kind="Value"
                 DataType=":Decimal">
@@ -430,6 +273,45 @@
                     </ScreenExpressionTree>
                   </ControlPropertySource>
                 </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem
+                Name="InvoiceNumber1"
+                Kind="Value"
+                DataType=":String">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Invoice/Properties[InvoiceNumber]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="PaymentMethod1"
+                Kind="Value"
+                DataType=":String?">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Invoice/Properties[PaymentMethod]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="InvoiceStatus"
+                Kind="Value"
+                DataType=":Int32">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Invoice/Properties[InvoiceStatus]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
               </ContentItem>
               <ContentItem.PropertySources>
                 <ControlPropertySource
@@ -520,14 +402,27 @@
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="CreatedBy2"
+                  Name="SubTotal"
                   Kind="Value"
-                  DataType=":Person?">
+                  DataType=":Decimal">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="InvoiceDetail/Properties[CreatedBy]" />
+                          Member="InvoiceDetail/Properties[SubTotal]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="RecommendedDosage"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="InvoiceDetail/Properties[RecommendedDosage]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -541,45 +436,6 @@
                       <ChainExpression>
                         <MemberExpression
                           Member="InvoiceDetail/Properties[Created]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="ModifiedBy2"
-                  Kind="Value"
-                  DataType=":Person?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="InvoiceDetail/Properties[ModifiedBy]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="Modified2"
-                  Kind="Value"
-                  DataType=":DateTimeOffset?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="InvoiceDetail/Properties[Modified]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="SubTotal"
-                  Kind="Value"
-                  DataType=":Decimal">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="InvoiceDetail/Properties[SubTotal]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>

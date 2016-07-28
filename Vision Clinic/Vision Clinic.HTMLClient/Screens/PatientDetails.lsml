@@ -48,19 +48,6 @@
                 Name="left"
                 Kind="Group">
                 <ContentItem
-                  Name="Name"
-                  Kind="Value"
-                  DataType=":Person">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Patient/Properties[Name]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
                   Name="City"
                   Kind="Value"
                   DataType=":String?">
@@ -68,7 +55,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Patient/Properties[City]" />
+                          Member="Patient/Properties[LastName]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -115,25 +102,12 @@
                 <ContentItem
                   Name="SecondaryPhone"
                   Kind="Value"
-                  DataType="Microsoft.LightSwitch.Extensions:PhoneNumber?">
+                  DataType=":String?">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Patient/Properties[SecondaryPhone]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="Email"
-                  Kind="Value"
-                  DataType="Microsoft.LightSwitch.Extensions:EmailAddress?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Patient/Properties[Email]" />
+                          Member="Patient/Properties[Gender]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -146,7 +120,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Patient/Properties[PolicyNumber]" />
+                          Member="Patient/Properties[PaymentMethod]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -455,179 +429,7 @@
           <ContentItem
             Name="MedicalHistories"
             Kind="Group"
-            View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
-            <ContentItem
-              Name="MedicalHistories1"
-              Kind="Collection"
-              DataType="CollectionView$MedicalHistory"
-              View="Microsoft.LightSwitch.MobileWeb:TileList">
-              <ContentItem.Attributes>
-                <DisplayName
-                  Value="MedicalHistories" />
-              </ContentItem.Attributes>
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression
-                      Member="PatientDetails/Properties[MedicalHistories]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-              <ContentItem
-                Name="rows2"
-                Kind="Details"
-                DataType="MedicalHistory"
-                View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
-                <ContentItem.Attributes>
-                  <DisplayName
-                    Value="rows" />
-                </ContentItem.Attributes>
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression />
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-                <ContentItem
-                  Name="Id"
-                  Kind="Value"
-                  DataType=":Int32">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="MedicalHistory/Properties[Id]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource
-                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[FontStyle]">
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <ConstantExpression
-                            Value="Large"
-                            ResultType=":String" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                </ContentItem>
-                <ContentItem
-                  Name="CreatedBy"
-                  Kind="Value"
-                  DataType=":Person?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="MedicalHistory/Properties[CreatedBy]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource
-                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[FontStyle]">
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <ConstantExpression
-                            Value="Small"
-                            ResultType=":String" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                </ContentItem>
-                <ContentItem
-                  Name="Created"
-                  Kind="Value"
-                  DataType=":DateTimeOffset?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="MedicalHistory/Properties[Created]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource
-                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[FontStyle]">
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <ConstantExpression
-                            Value="Small"
-                            ResultType=":String" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                </ContentItem>
-                <ContentItem.PropertySources>
-                  <ControlPropertySource
-                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[WidthSizingMode]">
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <ConstantExpression
-                          Value="FitToContent"
-                          ResultType=":String" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
-              </ContentItem>
-              <ContentItem.PropertySources>
-                <ControlPropertySource
-                  Property="Microsoft.LightSwitch.MobileWeb:RootCollectionControl/Properties[ItemTap]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="PatientDetails/Properties[MedicalHistories]" />
-                      <CallExpression
-                        Target="viewSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-              </ContentItem.PropertySources>
-            </ContentItem>
-            <ContentItem
-              Name="MedicalEncounters"
-              Kind="Collection"
-              DataType="CollectionView$MedicalEncounter">
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression
-                      Member="PatientDetails/Properties[MedicalEncounters]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-              <ContentItem
-                Name="MedicalEncountersTemplate"
-                Kind="Details"
-                DataType="MedicalEncounter"
-                View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression />
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-                <ContentItem
-                  Name="ProgressNotes"
-                  Kind="Value"
-                  DataType=":String?"
-                  View="Microsoft.LightSwitch.MobileWeb:Paragraph">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="MedicalEncounter/Properties[ProgressNotes]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-              </ContentItem>
-            </ContentItem>
-          </ContentItem>
+            View="Microsoft.LightSwitch.MobileWeb:RowsLayout" />
           <ContentItem.PropertySources>
             <ControlPropertySource
               Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[BrowseOnly]">
@@ -736,68 +538,6 @@
           <ChainExpression>
             <CallExpression
               Target="PatientDetails/Properties[Appointments]/Query" />
-          </ChainExpression>
-        </ScreenExpressionTree>
-      </ScreenCollectionProperty>
-      <ScreenCollectionProperty
-        Name="MedicalHistories"
-        PageSize="15"
-        PropertyType="CollectionView$MedicalHistory">
-        <ScreenCollectionProperty.Query>
-          <ScreenQueryDefinition
-            Name="MedicalHistoriesQuery"
-            ReturnType="MedicalHistory*">
-            <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
-            </ScreenQueryDefinition.FilterExpression>
-            <ScreenQueryDefinition.Source>
-              <QuerySourceExpressionTree>
-                <ChainExpression>
-                  <MemberExpression
-                    Member="PatientDetails/Properties[Patient]" />
-                  <MemberExpression
-                    Member="MedicalHistories" />
-                </ChainExpression>
-              </QuerySourceExpressionTree>
-            </ScreenQueryDefinition.Source>
-          </ScreenQueryDefinition>
-        </ScreenCollectionProperty.Query>
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression
-              Target="PatientDetails/Properties[MedicalHistories]/Query" />
-          </ChainExpression>
-        </ScreenExpressionTree>
-      </ScreenCollectionProperty>
-      <ScreenCollectionProperty
-        Name="MedicalEncounters"
-        PageSize="45"
-        PropertyType="CollectionView$MedicalEncounter">
-        <ScreenCollectionProperty.Query>
-          <ScreenQueryDefinition
-            Name="MedicalEncountersQuery"
-            ReturnType="MedicalEncounter*">
-            <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
-            </ScreenQueryDefinition.FilterExpression>
-            <ScreenQueryDefinition.Source>
-              <QuerySourceExpressionTree>
-                <ChainExpression>
-                  <MemberExpression
-                    Member="PatientDetails/Properties[MedicalHistories]" />
-                  <MemberExpression
-                    Member="selectedItem" />
-                  <MemberExpression
-                    Member="MedicalEncounters" />
-                </ChainExpression>
-              </QuerySourceExpressionTree>
-            </ScreenQueryDefinition.Source>
-          </ScreenQueryDefinition>
-        </ScreenCollectionProperty.Query>
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression
-              Target="PatientDetails/Properties[MedicalEncounters]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>

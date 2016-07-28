@@ -5,7 +5,7 @@
     <Partial />
   </ServiceApplication.Attributes>
   <EntityType
-    Name="Invoice">
+    Name="Carries">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
     </EntityType.Attributes>
@@ -27,85 +27,122 @@
         </KeyProperty.Attributes>
       </KeyProperty>
       <EntityProperty
-        Name="InvoiceDate"
-        PropertyType=":DateTime">
+        Name="A1"
+        PropertyType=":Boolean?">
         <EntityProperty.Attributes>
-          <Required />
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="InvoiceDue"
-        PropertyType=":DateTime">
+        Name="A2"
+        PropertyType=":Boolean?">
         <EntityProperty.Attributes>
-          <Required />
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="InvoiceStatus"
-        PropertyType=":Int32">
+        Name="A3"
+        PropertyType=":Boolean?">
         <EntityProperty.Attributes>
-          <Required />
           <NotSearchable />
-          <SupportedValue
-            DisplayName="Active"
-            Value="0" />
-          <SupportedValue
-            DisplayName="Paid"
-            Value="1" />
-          <SupportedValue
-            DisplayName="Overdue"
-            Value="2" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="PaymentMethod"
-        PropertyType=":String?">
+        Name="A4"
+        PropertyType=":Boolean?">
         <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-          <SupportedValue
-            Value="Mpesa" />
-          <SupportedValue
-            Value="Insurance" />
-          <SupportedValue
-            Value="Cash" />
-          <SupportedValue
-            Value="Cheque" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="A5"
+        PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="A6"
+        PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="A7"
+        PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="A8"
+        PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="B1"
+        PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="B2"
+        PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="B3"
+        PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="B4"
+        PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="B5"
+        PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="B6"
+        PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="B7"
+        PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="B8"
+        PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
       <NavigationProperty
-        Name="Patient"
-        Association="Invoice_Patient"
-        FromEnd="Invoice"
-        ToEnd="Patient" />
-      <NavigationProperty
-        Name="InvoiceDetails"
-        Association="Invoice_InvoiceDetail"
-        FromEnd="Invoice"
-        ToEnd="InvoiceDetail" />
-      <EntityProperty
-        Name="Tax"
-        PropertyType=":Decimal">
-        <EntityProperty.Attributes>
-          <Computed />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Total"
-        PropertyType=":Decimal">
-        <EntityProperty.Attributes>
-          <Computed />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="InvoiceNumber"
-        PropertyType=":String">
-        <EntityProperty.Attributes>
-          <Computed />
-        </EntityProperty.Attributes>
-      </EntityProperty>
+        Name="MedicalEncounter"
+        Association="MedicalEncounter_Carries"
+        FromEnd="Carries"
+        ToEnd="MedicalEncounter" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -150,9 +187,9 @@
         Name="RowVersion"
         PropertyType=":RowVersion">
         <EntityProperty.Attributes>
+          <Hidden />
           <UseForConcurrency />
           <Generated />
-          <Hidden />
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
@@ -164,14 +201,14 @@
       <Partial />
     </EntityContainer.Attributes>
     <EntitySet
-      Name="Invoices"
+      Name="CarriesSet"
       CanDelete="True"
       CanInsert="True"
       CanUpdate="True"
-      EntityType="Invoice" />
+      EntityType="Carries" />
     <QueryOperation
-      Name="Invoices_Single"
-      ReturnType="Invoice">
+      Name="CarriesSet_Single"
+      ReturnType="Carries">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -197,7 +234,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Invoices" />
+            Member="CarriesSet" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -210,8 +247,8 @@
       </QueryOperationParameter>
     </QueryOperation>
     <QueryOperation
-      Name="Invoices_SingleOrDefault"
-      ReturnType="Invoice">
+      Name="CarriesSet_SingleOrDefault"
+      ReturnType="Carries">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -237,7 +274,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Invoices" />
+            Member="CarriesSet" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -249,16 +286,6 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
-    <AssociationSet
-      Name="Invoice_InvoiceDetails"
-      Association="Invoice_InvoiceDetail">
-      <AssociationSetEnd
-        Name="Invoice"
-        EntitySet="Invoices" />
-      <AssociationSetEnd
-        Name="InvoiceDetail"
-        EntitySet="InvoiceDetails" />
-    </AssociationSet>
   </EntityContainer>
   <DataService
     Name="ApplicationDataMapping">
@@ -266,50 +293,25 @@
       <Partial />
     </DataService.Attributes>
     <EntitySetMapping
-      EntitySet="Invoices">
+      EntitySet="CarriesSet">
       <EntitySetMapping.Attributes>
         <SsdlForeignKeyProperty
-          Name="Invoice_Patient"
-          Nullable="False"
+          Name="Carries_MedicalEncounter"
+          Nullable="True"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="MedicalHistory_Carries"
+          Nullable="True"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="MedicalEncounter_Carries"
+          Nullable="True"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="Patient_Carries"
+          Nullable="True"
           Type="int" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
-    <AssociationSetMapping
-      AssociationSet="Invoice_InvoiceDetails">
-      <AssociationSetMapping.Attributes>
-        <SsdlAssociationSet
-          Name="Invoice_InvoiceDetails" />
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[Invoice_InvoiceDetails]/Members[Invoice]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Id" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[Invoice_InvoiceDetails]/Members[InvoiceDetail]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Invoice_InvoiceDetail" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-      </AssociationSetMapping.Attributes>
-    </AssociationSetMapping>
   </DataService>
-  <Association
-    Name="Invoice_InvoiceDetail">
-    <AssociationEnd
-      Name="Invoice"
-      Multiplicity="One"
-      EntityType="Invoice">
-      <AssociationEnd.Attributes>
-        <DeleteRule
-          Action="Restrict" />
-      </AssociationEnd.Attributes>
-    </AssociationEnd>
-    <AssociationEnd
-      Name="InvoiceDetail"
-      Multiplicity="Many"
-      EntityType="InvoiceDetail" />
-  </Association>
 </ServiceApplication>

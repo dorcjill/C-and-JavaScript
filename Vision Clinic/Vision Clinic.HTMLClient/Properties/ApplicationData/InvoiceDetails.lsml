@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application
-  Name="LightSwitchApplication.Vision_Clinic.DesktopClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  Name="LightSwitchApplication.Vision_Clinic.HTMLClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
   <Application.Attributes>
     <Partial />
   </Application.Attributes>
@@ -22,13 +22,6 @@
           <Proxy
             Target="ServiceInterface:InvoiceDetail/Properties[Product_ProductID]" />
           <Hidden />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty>
-        <EntityProperty.Attributes>
-          <Computed />
-          <Proxy
-            Target="LightSwitchServiceApplication:InvoiceDetail/Properties[SubTotal]" />
         </EntityProperty.Attributes>
       </EntityProperty>
     </EntityType.Properties>

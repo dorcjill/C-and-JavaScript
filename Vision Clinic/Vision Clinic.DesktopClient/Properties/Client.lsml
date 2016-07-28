@@ -53,19 +53,13 @@
       Name="ScreenCommandShowInvoiceScreen"
       Target="!module/Methods[ShowInvoiceScreen]" />
     <ApplicationCommand
-      Name="ScreenCommandShowPatientsMedicalHistory"
-      Target="!module/Methods[ShowPatientsMedicalHistory]" />
-    <ApplicationCommand
-      Name="ScreenCommandShowAnalyzeInvoiceDetails"
-      Target="!module/Methods[ShowAnalyzeInvoiceDetails]" />
-    <ApplicationCommand
-      Name="ScreenCommandShowCalendar"
-      Target="!module/Methods[ShowCalendar]" />
+      Name="ScreenCommandShowPatientsMedicalHx"
+      Target="!module/Methods[ShowPatientsMedicalHx]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
       Name="Administration"
-      DefaultItem="!module/NavigationItems[Administration]/Children[PatientsMedicalHistory]">
+      DefaultItem="!module/NavigationItems[Administration]/Children[PatientsMedicalHx]">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
           Value="Administration" />
@@ -77,14 +71,8 @@
         Name="UsersScreen"
         Command="Microsoft.LightSwitch.Security:!module/Commands[ScreenCommandShowUsersScreen]" />
       <ApplicationNavigationLink
-        Name="PatientsMedicalHistory"
-        Command="!module/Commands[ScreenCommandShowPatientsMedicalHistory]" />
-      <ApplicationNavigationLink
-        Name="AnalyzeInvoiceDetails"
-        Command="!module/Commands[ScreenCommandShowAnalyzeInvoiceDetails]" />
-      <ApplicationNavigationLink
-        Name="Calendar"
-        Command="!module/Commands[ScreenCommandShowCalendar]" />
+        Name="PatientsMedicalHx"
+        Command="!module/Commands[ScreenCommandShowPatientsMedicalHx]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="group">

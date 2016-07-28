@@ -27,6 +27,18 @@
         </KeyProperty.Attributes>
       </KeyProperty>
       <EntityProperty
+        Name="PatientType"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+          <SupportedValue
+            Value="New" />
+          <SupportedValue
+            Value="Old" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="AppointmentStartTime"
         PropertyType=":DateTime">
         <EntityProperty.Attributes>

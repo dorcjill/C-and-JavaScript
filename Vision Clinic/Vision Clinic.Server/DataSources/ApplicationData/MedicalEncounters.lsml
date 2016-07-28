@@ -27,18 +27,66 @@
         </KeyProperty.Attributes>
       </KeyProperty>
       <EntityProperty
-        Name="ProgressNotes"
+        Name="O_E"
         PropertyType=":String?">
         <EntityProperty.Attributes>
           <MaxLength
             Value="255" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <EntityProperty
+        Name="C_C"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="HPI"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Diagnosis"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Plan"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="PastMedicalHx"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="PastDentalHx"
+        PropertyType=":String?" />
       <NavigationProperty
-        Name="MedicalHistory"
-        Association="MedicalHistory_MedicalEncounter"
+        Name="CarriesCollection"
+        Association="MedicalEncounter_Carries"
         FromEnd="MedicalEncounter"
-        ToEnd="MedicalHistory" />
+        ToEnd="Carries" />
+      <NavigationProperty
+        Name="Imagings"
+        Association="MedicalEncounter_Imaging"
+        FromEnd="MedicalEncounter"
+        ToEnd="Imaging" />
+      <NavigationProperty
+        Name="Patient"
+        Association="Patient_MedicalEncounter"
+        FromEnd="MedicalEncounter"
+        ToEnd="Patient" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -182,6 +230,26 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
+    <AssociationSet
+      Name="MedicalEncounter_CarriesSet"
+      Association="MedicalEncounter_Carries">
+      <AssociationSetEnd
+        Name="MedicalEncounter"
+        EntitySet="MedicalEncounters" />
+      <AssociationSetEnd
+        Name="Carries"
+        EntitySet="CarriesSet" />
+    </AssociationSet>
+    <AssociationSet
+      Name="MedicalEncounter_Imagings"
+      Association="MedicalEncounter_Imaging">
+      <AssociationSetEnd
+        Name="MedicalEncounter"
+        EntitySet="MedicalEncounters" />
+      <AssociationSetEnd
+        Name="Imaging"
+        EntitySet="Imagings" />
+    </AssociationSet>
   </EntityContainer>
   <DataService
     Name="ApplicationDataMapping">
@@ -195,7 +263,83 @@
           Name="MedicalHistory_MedicalEncounter"
           Nullable="True"
           Type="int" />
+        <SsdlForeignKeyProperty
+          Name="Patient_MedicalEncounter"
+          Nullable="True"
+          Type="int" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="MedicalEncounter_CarriesSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="MedicalEncounter_CarriesSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[MedicalEncounter_CarriesSet]/Members[MedicalEncounter]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[MedicalEncounter_CarriesSet]/Members[Carries]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="MedicalEncounter_Carries" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="MedicalEncounter_Imagings">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="MedicalEncounter_Imagings" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[MedicalEncounter_Imagings]/Members[MedicalEncounter]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[MedicalEncounter_Imagings]/Members[Imaging]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="MedicalEncounter_Imaging" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
+  <Association
+    Name="MedicalEncounter_Carries">
+    <AssociationEnd
+      Name="MedicalEncounter"
+      EntityType="MedicalEncounter">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Disassociate" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="Carries"
+      Multiplicity="Many"
+      EntityType="Carries" />
+  </Association>
+  <Association
+    Name="MedicalEncounter_Imaging">
+    <AssociationEnd
+      Name="MedicalEncounter"
+      EntityType="MedicalEncounter">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Disassociate" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="Imaging"
+      Multiplicity="Many"
+      EntityType="Imaging" />
+  </Association>
 </ServiceApplication>

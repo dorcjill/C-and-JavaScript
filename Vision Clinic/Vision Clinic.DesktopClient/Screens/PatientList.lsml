@@ -40,10 +40,40 @@
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
               <ContentItem
+                Name="PatientID"
+                Kind="Value"
+                DataType=":String">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Patient/Properties[PatientID]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[Width]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression
+                        Value="200"
+                        ResultType=":Double" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:Label/Properties[Lines]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression
+                        Value="2"
+                        ResultType=":Int32" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem
                 Name="Name"
                 Kind="Value"
-                DataType=":Person"
-                View="Microsoft.LightSwitch.RichClient:Label">
+                DataType=":Person">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -61,38 +91,17 @@
                         ResultType=":Boolean" />
                     </ScreenExpressionTree>
                   </ControlPropertySource>
-                  <ControlPropertySource
-                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[FontStyle]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression
-                        Value="Strong"
-                        ResultType=":String" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
                 </ContentItem.PropertySources>
               </ContentItem>
               <ContentItem
-                Name="Street"
+                Name="Gender"
                 Kind="Value"
                 DataType=":String?">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Patient/Properties[Street]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="City"
-                Kind="Value"
-                DataType=":String?">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Patient/Properties[City]" />
+                        Member="Patient/Properties[Gender]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -111,64 +120,17 @@
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem
-                Name="SecondaryPhone"
+                Name="NextOfKin"
                 Kind="Value"
-                DataType="Microsoft.LightSwitch.Extensions:PhoneNumber?">
+                DataType=":String?">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Patient/Properties[SecondaryPhone]" />
+                        Member="Patient/Properties[NextOfKin]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="Email"
-                Kind="Value"
-                DataType="Microsoft.LightSwitch.Extensions:EmailAddress?">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Patient/Properties[Email]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-                <ContentItem.PropertySources>
-                  <ControlPropertySource
-                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[ShowAsLink]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression
-                        Value="True"
-                        ResultType=":Boolean" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
-              </ContentItem>
-              <ContentItem
-                Name="PolicyNumber"
-                Kind="Value"
-                DataType=":String?"
-                View="Microsoft.LightSwitch.RichClient:Label">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Patient/Properties[PolicyNumber]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-                <ContentItem.PropertySources>
-                  <ControlPropertySource
-                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[FontStyle]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression
-                        Value="Warning"
-                        ResultType=":String" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
               </ContentItem>
             </ContentItem>
             <ContentItem.CommandItems>
@@ -259,6 +221,19 @@
                   <ChainExpression />
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
+              <ContentItem
+                Name="PatientType"
+                Kind="Value"
+                DataType=":String?">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Appointment/Properties[PatientType]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
               <ContentItem
                 Name="AppointmentTime"
                 Kind="Value"

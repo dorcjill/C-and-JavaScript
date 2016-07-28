@@ -46,6 +46,17 @@
     <WarningLevel>4</WarningLevel>
     <UseDesignTimeFeatures>true</UseDesignTimeFeatures>
     <NoWarn>1522</NoWarn>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="876f9db0-15d1-4aaa-ac99-68ca709be69b-Deployment" Order="2">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=.\sqlexpress%3bInitial Catalog=C:\TEMP\PRESCRIPTIONCONTOSO.MDF%3bIntegrated Security=True" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\876f9db0-15d1-4aaa-ac99-68ca709be69b-Deployment_SchemaAndData.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -242,6 +253,9 @@
     <Compile Include="DataSources\ApplicationData\InvoiceDetail.lsml.cs">
       <DependentUpon>InvoiceDetails.lsml</DependentUpon>
     </Compile>
+    <Compile Include="DataSources\ApplicationData\Patient.lsml.cs">
+      <DependentUpon>Patients.lsml</DependentUpon>
+    </Compile>
     <Compile Include="DataSources\PrescriptionContoso\Product.lsml.cs">
       <DependentUpon>Products.lsml</DependentUpon>
     </Compile>
@@ -270,10 +284,10 @@
     <LightSwitchModel Include="DataSources\ApplicationData\UpcomingAppointments.lsml">
       <DependentUpon>Appointments.lsml</DependentUpon>
     </LightSwitchModel>
-    <LightSwitchModel Include="DataSources\ApplicationData\MedicalHistories.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\MedicalEncounters.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\AllergiesSet.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\Imagings.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\CarriesSet.lsml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

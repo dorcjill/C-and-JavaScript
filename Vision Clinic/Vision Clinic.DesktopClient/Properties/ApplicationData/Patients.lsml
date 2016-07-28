@@ -8,6 +8,16 @@
     <EntityType.Attributes>
       <Proxy
         Target="ServiceInterface:Patient" />
+      <SummaryProperty
+        Property="Patient/Properties[Name]" />
+      <DefaultScreen
+        Value="MedicalHx">
+        <DefaultScreen.Attributes>
+          <ScreenParameterMapping
+            KeyProperty="Patient/Properties[Id]"
+            ScreenParameter="MedicalHx/Properties[PatientId]" />
+        </DefaultScreen.Attributes>
+      </DefaultScreen>
     </EntityType.Attributes>
     <EntityType.Properties>
       <NavigationProperty>
@@ -24,13 +34,20 @@
           <Hidden />
         </NavigationProperty.Attributes>
       </NavigationProperty>
-      <NavigationProperty>
-        <NavigationProperty.Attributes>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
           <Proxy
-            Target="ServiceInterface:Patient/Properties[MedicalHistories]" />
-          <Hidden />
-        </NavigationProperty.Attributes>
-      </NavigationProperty>
+            Target="LightSwitchServiceApplication:Patient/Properties[Name]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:Patient/Properties[PatientID]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 </Application>
