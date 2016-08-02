@@ -26,6 +26,11 @@
           <NotSearchable />
         </KeyProperty.Attributes>
       </KeyProperty>
+      <VirtualNavigationProperty
+        Name="Product"
+        FromEnd="InvoiceDetail"
+        ToEnd="Product"
+        VirtualAssociation="InvoiceDetail_Product" />
       <EntityProperty
         Name="Quantity"
         PropertyType=":Int32">
@@ -45,16 +50,19 @@
             Scale="2" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <EntityProperty
+        Name="RecommendedDosage"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
       <NavigationProperty
         Name="Invoice"
         Association="Invoice_InvoiceDetail"
         FromEnd="InvoiceDetail"
         ToEnd="Invoice" />
-      <VirtualNavigationProperty
-        Name="Product"
-        FromEnd="InvoiceDetail"
-        ToEnd="Product"
-        VirtualAssociation="InvoiceDetail_Product" />
       <EntityProperty
         Name="Product_ProductID"
         PropertyType=":Int32">
@@ -67,14 +75,6 @@
         PropertyType=":Decimal">
         <EntityProperty.Attributes>
           <Computed />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="RecommendedDosage"
-        PropertyType=":String?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty

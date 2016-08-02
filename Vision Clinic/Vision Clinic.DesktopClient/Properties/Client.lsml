@@ -58,8 +58,7 @@
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
-      Name="Administration"
-      DefaultItem="!module/NavigationItems[Administration]/Children[PatientsMedicalHx]">
+      Name="Administration">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
           Value="Administration" />
@@ -70,9 +69,6 @@
       <ApplicationNavigationLink
         Name="UsersScreen"
         Command="Microsoft.LightSwitch.Security:!module/Commands[ScreenCommandShowUsersScreen]" />
-      <ApplicationNavigationLink
-        Name="PatientsMedicalHx"
-        Command="!module/Commands[ScreenCommandShowPatientsMedicalHx]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="group">
@@ -114,6 +110,9 @@
       <ApplicationNavigationLink
         Name="link"
         Command="!module/Commands[ScreenCommandShowPatientList]" />
+      <ApplicationNavigationLink
+        Name="link4"
+        Command="!module/Commands[ScreenCommandShowPatientsMedicalHx]" />
     </ApplicationNavigationGroup>
   </Application.NavigationItems>
 </Application>

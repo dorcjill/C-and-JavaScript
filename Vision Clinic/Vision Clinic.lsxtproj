@@ -20,7 +20,7 @@
     <ApplicationClientType>Desktop</ApplicationClientType>
     <ApplicationServerType>Azure</ApplicationServerType>
     <AuthenticationType>Forms</AuthenticationType>
-    <ApplicationName>Dental_Clinic.DesktopClient</ApplicationName>
+    <ApplicationName>Dental_Clinic</ApplicationName>
     <AssemblyVersion>1.0.2.0</AssemblyVersion>
     <ServiceDefinitionFile>ServiceDefinition.csdef</ServiceDefinitionFile>
     <ServiceConfigurationFile>ServiceConfiguration.cscfg</ServiceConfigurationFile>

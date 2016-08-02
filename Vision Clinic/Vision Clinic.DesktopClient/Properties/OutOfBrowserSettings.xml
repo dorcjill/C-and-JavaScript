@@ -1,7 +1,7 @@
-﻿<OutOfBrowserSettings ShortName="Dental_Clinic.DesktopClient" EnableGPUAcceleration="False" ShowInstallMenuItem="True">
-  <OutOfBrowserSettings.Blurb>Dental_Clinic.DesktopClient</OutOfBrowserSettings.Blurb>
+﻿<OutOfBrowserSettings ShortName="Dental_Clinic" EnableGPUAcceleration="False" ShowInstallMenuItem="True">
+  <OutOfBrowserSettings.Blurb>Dental_Clinic</OutOfBrowserSettings.Blurb>
   <OutOfBrowserSettings.WindowSettings>
-    <WindowSettings Title="Dental_Clinic.DesktopClient" Top="0" Left="0" WindowStartupLocation="Manual" />
+    <WindowSettings Title="Dental_Clinic" Top="0" Left="0" WindowStartupLocation="Manual" />
   </OutOfBrowserSettings.WindowSettings>
   <OutOfBrowserSettings.SecuritySettings>
     <SecuritySettings ElevatedPermissions="Required" />

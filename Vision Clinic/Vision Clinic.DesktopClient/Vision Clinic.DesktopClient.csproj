@@ -43,7 +43,7 @@
     <WCFRIASERVICESSDKPath Condition=" '$(WCFRIASERVICESSDKPath)' == '' ">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\WCFRIAServices\v5.2@InstallPath)</WCFRIASERVICESSDKPath>
     <LightSwitchProjectTypeV45>Client</LightSwitchProjectTypeV45>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
-    <ApplicationName>Dental_Clinic.DesktopClient</ApplicationName>
+    <ApplicationName>Dental_Clinic</ApplicationName>
     <SignManifests>False</SignManifests>
     <ManifestCertificateThumbprint />
     <ManifestKeyFile />

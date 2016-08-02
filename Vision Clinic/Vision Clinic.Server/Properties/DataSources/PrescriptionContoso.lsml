@@ -27,13 +27,13 @@
         Value="91510608-8809-4020-8897-fba057e22d54" />
       <ConnectionProperty
         Name="DataSourceName"
-        Value="bf8bef57-3ef1-4ec4-beeb-6581498003a6" />
+        Value="067ea0d9-ba62-43f7-9106-34930c60c528" />
       <ConnectionProperty
         Name="ProviderInvariantName"
         Value="System.Data.SqlClient" />
       <ConnectionProperty
         Name="ConnectionStringGuid"
-        Value="876f9db0-15d1-4aaa-ac99-68ca709be69b" />
+        Value="dc8e47d1-4960-423b-9195-fc2741658391" />
       <ConnectionProperty
         Name="ProviderManifestToken"
         Value="2008" />
